@@ -1,0 +1,202 @@
+body {
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	color: #333;
+}
+
+.wrapper_960 {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#box_footer {
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#box_footer a, #box_footer a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#box_footer a:hover {
+	text-decoration: underline;
+}
+	.footer_left {
+		float: left;
+		width: 400px;
+	}
+	.footer_right {
+		float: right;
+		width: 400px;
+		text-align: right;
+	}
+
+
+/* global */
+	.cleaner { clear: both; }
+	.div_left { text-align: left; }
+	.div_center { text-align: center; }
+	.div_right { text-align: right; }
+	.float_left { float: left; }
+	.float_right { float: right; }
+	.div_bold { font-weight: bold; }
+	form input.input_hidden { display: none; }
+	a, a:hover { text-decoration: underline; }
+	a:hover { text-decoration: none; }
+
+/* placeholder */
+	input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #999999; font-size: 11px; }
+	input:-moz-placeholder, textarea:-moz-placeholder { color: #999999; font-size: 11px; }
+	input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { color: #c2c2c2; font-size: 11px; }
+	input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { color: #c2c2c2; font-size: 11px; }
+
+/* reset */
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	input, select, textarea {
+		margin: 0px 0px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		font-family: 'Arial', sans-serif;
+		font-size: 14px;
+		color: #333;
+	}
+		textarea {
+			width: 205px;
+			height: 100px;
+		}
+		input:focus, select:focus, textarea:focus {
+			border: 1px solid #000;
+		}
+
+	input.btn_submit, a.a_submit,
+	div#cc-dialog-close span {
+		cursor: pointer;
+		padding: 8px 20px;
+		width: auto;
+		background: url("../images/btn_submit.png") repeat-x;
+		border: 1px solid #ccc;
+		font-family: 'Arial', sans-serif;
+		font-size: 14px;
+		color: #fff;
+		text-decoration: none;
+		margin-top: 10px;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-khtml-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			behavior: url('../image/border-radius.htc');
+	}
+		input.btn_submit:hover, a.a_submit:hover,
+		div#cc-dialog-close span:hover {
+			border: 1px solid #999;
+			background: #999;
+		}
+
+/* form */
+	.span_warning {
+		color: red;
+		font-weight: bold;
+		font-size: 12px;
+	}
+	.div_required {
+		font-size: 12px;
+	}
+	.div_agree {}
+	.div_button {
+		margin-top: 15px;
+	}
+
+	h3.h3_form {
+		margin: 0; padding: 0;
+		font-weight: bold;
+		font-size: 16px;
+	}
+	.form_row {}
+		.form_label {
+			float: left;
+			width: 200px;
+		}
+			.form_left {
+				float: left;
+				width: 160px;
+				margin-top: 10px;
+			}
+			.form_row input {
+				float: left;
+				width: 205px;
+				margin-bottom: -3px;
+			}
+			.form_row select {
+				float: left;
+				width: 217px;
+				padding: 4px 5px;
+				margin-top: 7px;
+				margin-bottom: -3px;
+			}
+
+
+/* tutor */
+.div_tutor {
+	margin-top: 20px;
+}
+	.tutor_sample {
+		float: left;
+		width: 380px;
+	}
+	.tutor_info {
+		float: right;
+		width: 550px;
+	}
+		.tutor_info code {
+			font-size: 13px;
+		}
+.tutor_sep {
+	height: 2px;
+	background: #ccc;
+	margin-top: 30px;
+}
+
+.span_rule {
+	color: blue;
+	font-weight: bold;
+}
+	.code_blue {
+		color: blue;
+	}
+	.code_red {
+		color: red;
+	}
+
+.download, .download:hover {
+	display: block;
+	background: url("../images/download.png") no-repeat left center;
+	padding: 30px 0px 30px 80px;
+	font-size: 16px;
+	text-decoration: none;
+	color: #333333;
+	font-weight: bold;
+	margin-left: 30px;
+}
+	.download:hover {
+		text-shadow: 0px 1px 2px #999999;
+	}
+
+h1.page_title {
+	margin: 0; padding: 0;
+	color: #fff;
+	background: #999;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: right;
+	padding: 25px 5px 5px 5px;
+}
+h2.form_title {
+	margin: 0; padding: 0;
+	color: #555;
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}

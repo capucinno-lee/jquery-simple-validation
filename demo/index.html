@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>capucinno_lee: jQuery Simple Validation</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+	<script src="resources/js/jquery.min.js" /></script>
+	<script src="resources/js/placeholder.js" /></script>
+	<script src="resources/js/jquery.simple.validation.js" /></script>
+</head>
+
+<body>
+	<div class="wrapper_960">
+		<h1 class="page_title">jQuery Simple Validation</h1>
+		<div class="div_tutor">
+			<div class="tutor_sample">
+				<h2 class="form_title">Demo 1</h2>
+				<form class="form_validation" action="" method="POST">
+					<div class="form_row">
+						<div class="form_left">ID <span class="span_warning"></span></div>
+						<input name="id" placeholder="no data-rules" type="text" />
+						<div class="cleaner"></div>
+					</div>
+					<div class="form_row">
+						<div class="form_left">First Name <span class="span_warning">*</span></div>
+						<input name="name" placeholder="required" type="text" data-rules="First Name-required" />
+						<div class="cleaner"></div>
+					</div>
+                    <div class="form_row">
+                        <div class="form_left">Email Address <span class="span_warning">*</span></div>
+                        <input name="email" placeholder="required, valid_email" type="text" data-rules="Email Address-required#Email Address-valid_email" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">URL <span class="span_warning"></span></div>
+                        <input name="url" placeholder="valid_url" type="text" data-rules="URL-valid_url" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">IP <span class="span_warning"></span></div>
+                        <input name="ip" placeholder="valid_ip" type="text" data-rules="IP-valid_ip" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Password <span class="span_warning"></span></div>
+                        <input id="txt_pass" name="password" placeholder="min_length+8, max_length+16" type="password" data-rules="Password-min_length+8#Password-max_length+16" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Confirm Password <span class="span_warning"></span></div>
+                        <input name="password2" placeholder="matches+txt_pass+Password" type="password" data-rules="Confirm Password-matches+txt_pass+Password" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Code <span class="span_warning"></span></div>
+                        <input name="code" placeholder="exact_length+5" type="text" data-rules="Code-exact_length+5" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Range Value <span class="span_warning"></span></div>
+                        <input name="range" placeholder="numeric, min+1, max+5" type="text" data-rules="Range Value-numeric#Range Value-min+1#Range Value-max+5" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Alphabet <span class="span_warning"></span></div>
+                        <input name="alphabet" placeholder="alpha" type="text" data-rules="Alphabet-alpha" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Alphabet Numeric <span class="span_warning"></span></div>
+                        <input name="alphabet_numeric" placeholder="alpha_numeric" type="text" data-rules="Alphabet Numeric-alpha_numeric" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Numeric <span class="span_warning"></span></div>
+                        <input name="numeric" placeholder="numeric (-12.345)" type="text" data-rules="Numeric-numeric" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Is Numeric <span class="span_warning"></span></div>
+                        <input name="is_numeric" placeholder="is_numeric (12345)" type="text" data-rules="Is Numeric-is_numeric" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Integer <span class="span_warning"></span></div>
+                        <input name="integer" placeholder="integer (-12345)" type="text" data-rules="Integer-integer" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Phone Number <span class="span_warning"></span></div>
+                        <input name="phone" placeholder="valid_phone (+12 345 678)" type="text" data-rules="Phone Number-valid_phone" />
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form_left">Date <span class="span_warning"></span></div>
+                        <input name="date" placeholder="valid_date (mm-dd-yyyy)" type="text" data-rules="Date-valid_date" />
+                        <div class="cleaner"></div>
+                    </div>
+					<div class="div_button div_right"><input class="btn_submit" type="submit" value="Submit Demo 1" /></div>
+				</form>
+			</div>
+			<div class="tutor_info">
+				<br/><br/>
+				<code>
+					<strong>Html Markup :</strong>
+					<div>&lt;form class="<span class="code_blue">form_validation</span>" action="" method="POST"&gt;</div>
+					<div style="margin-left:20px;">&lt;input name="id" type="text" /&gt;</div>
+					<div style="margin-left:20px;">&lt;input name="name" type="text" data-rules="<span class="code_red">First Name-required</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="email" type="text" data-rules="<span class="code_red">Email Address-required#Email Address-valid_email</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="url" type="text" data-rules="<span class="code_red">URL-valid_url</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="ip" type="text" data-rules="<span class="code_red">IP-valid_ip</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="password" id="<span class="code_blue">txt_pass</span>" type="password" data-rules="<span class="code_red">Password-min_length+8#Password-max_length+16</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="password2" type="password" data-rules="<span class="code_red">Confirm Password-matches+txt_pass+password</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="code" type="text" data-rules="<span class="code_red">Code-exact_length+5</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="range" type="text" data-rules="<span class="code_red">Range Value-numeric#Range Value-min+1#Range Value-max+5</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="alphabet" type="text" data-rules="<span class="code_red">Alphabet-alpha</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="alphabet_numeric" type="text" data-rules="<span class="code_red">Alphabet Numeric-alpha_numeric</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="numeric" type="text" data-rules="<span class="code_red">Numeric-numeric</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="is_numeric" type="text" data-rules="<span class="code_red">Is Numeric-is_numeric</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="integer" type="text" data-rules="<span class="code_red">Integer-integer</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="phone" type="text" data-rules="<span class="code_red">Phone Number-valid_phone</span>" /&gt;</div>
+                    <div style="margin-left:20px;">&lt;input name="date" type="text" data-rules="<span class="code_red">Date-valid_date</span>" /&gt;</div>
+					<div>&lt;/form&gt;</div>
+					<br/>
+					<strong>Javascript :</strong>
+                    <p>$('<span class="code_blue">.form_validation</span>').validate();</p>
+				</code>
+			</div>
+			<div class="cleaner"></div>
+		</div>
+
+        <div class="tutor_sep"></div>
+        <div class="div_tutor">
+            <div class="tutor_sample">
+                <h2 class="form_title">Demo 2</h2>
+                <form class="form_others" action="" method="POST">
+                    <div class="form_row">
+                        <div class="form_left">Salutation <span class="span_warning">*</span></div>
+                        <select name="salutation" data-rules="Salutation-required">
+                            <option value="">-- Please Select --</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Dr">Dr</option>
+                        </select>
+                        <div class="cleaner"></div>
+                    </div>
+                    <p class="form_row">
+                        <div class="form_left" style="margin-top:0px;">Options <span class="span_warning">*</span></div>
+                        <input type="checkbox" name="options[]" value="1" data-rules="Options-multi_check+3" /> 1 &emsp;
+                        <input type="checkbox" name="options[]" value="2" /> 2 &emsp;
+                        <input type="checkbox" name="options[]" value="3" /> 3 &emsp;
+                        <input type="checkbox" name="options[]" value="4" /> 4 &emsp;
+                        <input type="checkbox" name="options[]" value="5" /> 5
+                        <div class="cleaner"></div>
+                    </p>
+                    <p class="form_row">
+                        <div class="form_left" style="margin-top:0px;">Rating <span class="span_warning">*</span></div>
+                        <input type="radio" name="rating" value="1" data-rules="Rating-valid_radio" /> 1 &emsp;
+                        <input type="radio" name="rating" value="2" /> 2 &emsp;
+                        <input type="radio" name="rating" value="3" /> 3 &emsp;
+                        <div class="cleaner"></div>
+                    </p>
+                    <div class="form_row">
+                        <div class="form_left">Comment <span class="span_warning">*</span></div>
+                        <textarea name="comment" placeholder="required" data-rules="Comment-required"></textarea>
+                        <div class="cleaner"></div>
+                    </div>
+                    <div class="div_agree"><input type="checkbox" data-rules="You should tick agree.-valid_check" /> &nbsp; I agree to the Terms of Use and Privacy Policy.</div>
+                    <div class="div_button div_right"><input class="btn_submit" type="submit" value="Submit Demo 2" /></div>
+                </form>
+            </div>
+            <div class="tutor_info">
+                <br/><br/>
+                <code>
+                    <strong>Html Markup :</strong>
+                    <div>&lt;form class="<span class="code_blue">form_others</span>" action="" method="POST"&gt;</div>
+                    <div style="margin-left:20px;">&lt;select name="salutation" data-rules="<span class="code_red">Salutation-required</span>"&gt;</div>
+                        <div style="margin-left:40px;">....</div>
+                    <div style="margin-left:20px;">&lt;/select&gt;</div>
+                    <div style="margin-left:20px;">&lt;input type="checkbox" name="options[]" value="1" data-rules="<span class="code_red">Options-multi_check+3</span>" /&gt; 1</div>
+                    <div style="margin-left:40px;">&lt;input type="checkbox" name="options[]" value="2" /&gt; 2</div>
+                    <div style="margin-left:40px;">&lt;input type="checkbox" name="options[]" value="3" /&gt; 3</div>
+                    <div style="margin-left:40px;">&lt;input type="checkbox" name="options[]" value="4" /&gt; 4</div>
+                    <div style="margin-left:40px;">&lt;input type="checkbox" name="options[]" value="5" /&gt; 5</div>
+                    <div style="margin-left:20px;">&lt;input type="radio" name="rating" value="1" data-rules="<span class="code_red">Rating-valid_radio</span>" /&gt; 1</div>
+                    <div style="margin-left:40px;">&lt;input type="radio" name="rating" value="2" /&gt; 2</div>
+                    <div style="margin-left:40px;">&lt;input type="radio" name="rating" value="3" /&gt; 2</div>
+                    <div style="margin-left:20px;">&lt;textarea name="comment" data-rules="<span class="code_red">Comment-required</span>"&gt;&lt;/textarea&gt;</div>
+                    <div style="margin-left:20px;">&lt;input type="checkbox" data-rules="<span class="code_red">You should tick agree.-valid_check</span>" /&gt;</div>
+                    <div>&lt;/form&gt;</div>
+                    <br/>
+                    <strong>Javascript :</strong>
+                    <p>$('<span class="code_blue">.form_others</span>').validate();</p>
+                </code>
+            </div>
+            <div class="cleaner"></div>
+        </div>
+
+		<div class="tutor_sep"></div>
+		<div class="div_tutor">
+			<h2 class="form_title">DOCUMENTATION</h2>
+			<table style="width:700px; border:1px solid #ccc; font-size:13px; float:left;">
+				<tr>
+					<td><b>data-rules</b></td><td><b>message</b></td>
+				</tr>
+				<tr>
+					<td><span class="span_rule">[label]-required</span></td><td>: The [label] field is required.</td>
+				</tr>
+				<tr>
+					<td><span class="span_rule">[label]-valid_email</span></td><td>: The [label] field must contain a valid email address.</td>
+				</tr>
+                <tr>
+                    <td><span class="span_rule">[label]-valid_url</span></td><td>: The [label] field must contain a valid URL.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-valid_ip</span></td><td>: The [label] field must contain a valid IP.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-matches+[ID]+[label_id]</span></td><td>: The [label] field does not match the [label_id] field.</td>
+                </tr>
+				<tr>
+					<td><span class="span_rule">[label]-min_length+[N]</span></td><td>: The [label] field must be at least [N] character(s) in length.</td>
+				</tr>
+				<tr>
+					<td><span class="span_rule">[label]-max_length+[N]</span></td><td>: The [label] field can not exceed [N] character(s) in length.</td>
+				</tr>
+                <tr>
+                    <td><span class="span_rule">[label]-exact_length+[N]</span></td><td>: The [label] field must be exactly [N] character(s) in length.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-min+[N]</span></td><td>: The [label] field must be greater than [N].</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-max+[N]</span></td><td>: The [label] field must be less than [N].</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-alpha</span></td><td>: The [label] field may only contain alphabetical characters.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-alpha_numeric</span></td><td>: The [label] field may only contain alpha-numeric characters.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-numeric</span></td><td>: The [label] field must contain only numbers.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-is_numeric</span></td><td>: The [label] field must contain only numeric characters.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-integer</span></td><td>: The [label] field must contain an integer.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-valid_phone</span></td><td>: The [label] field must contain a valid phone number.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-valid_date</span></td><td>: The [label] field must contain a valid date.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[message]-valid_check</span></td><td>: [message]</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-valid_radio</span></td><td>: Please choose one of [label] options.</td>
+                </tr>
+                <tr>
+                    <td><span class="span_rule">[label]-multi_check+[min]</span></td><td>: Please choose (min) [min] of [label] options.</td>
+                </tr>
+			</table>
+			<div style="float:right; width:260px; margin-top:60px;">
+				<a href="resources/js/jquery.simple.validation.js" target="_blank" class="download">Download Plugin</a>
+			</div>
+			<div class="cleaner"></div>
+		</div>
+		<br/>
+
+        <div id="box_footer">
+            <div class="footer_left">Copyright &copy; 2013 capucinno_lee. Originally created in <a href="http://www.closelycoded.com/" target="_blank">Closely Coded</a>.</div>
+            <div class="footer_right"><a href="http://id.linkedin.com/pub/michelle-amalia-indranandita/19/734/b18" target="_blank"><img src="resources/images/icon_linkedin.png" /></a></div>
+            <div class="cleaner"></div>
+        </div>
+
+        <script>
+            $(function() {
+                $('input, textarea').placeholder();
+            });
+            $(document).ready(function () {
+                $('.form_validation').validate();
+                $('.form_others').validate();
+            });
+        </script>
+	</div><!-- wrapper_960 -->
+</body>
+</html>
