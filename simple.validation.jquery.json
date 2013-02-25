@@ -10,11 +10,11 @@
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/MIT"
+			"url": "http://opensource.org/licenses/MIT"
 		}
 	],
 	"dependencies": {
-		"jquery": ">=1.4.4"
+		"jquery": ">=1.7.1"
 	},
 	"description": "A simple jquery validation plugin for validating form that fit your application easily.",
 	"keywords": [
