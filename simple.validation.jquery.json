@@ -1,0 +1,31 @@
+{
+	"name": "simple.validation",
+	"version": "1.0.1",
+	"title": "jQuery Simple Validation",
+	"author": {
+		"name": "Michelle Amalia",
+		"email": "capucinno.lee@gmail.com",
+		"url": "http://capucinno-lee.site44.com/"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/MIT"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.4.4"
+	},
+	"description": "A simple jquery validation plugin for validating form that fit your application easily.",
+	"keywords": [
+		"form",
+		"forms",
+		"validation",
+		"validate"
+	],
+	"homepage": "https://github.com/capucinno-lee/jquery-simple-validation",
+	"docs": "http://capucinno-lee.site44.com/jquery-simple-validation/",
+	"demo": "http://capucinno-lee.site44.com/jquery-simple-validation/",
+	"download": "http://capucinno-lee.site44.com/jquery-simple-validation/",
+	"bugs": "https://github.com/capucinno-lee/jquery-simple-validation/issues"
+}
