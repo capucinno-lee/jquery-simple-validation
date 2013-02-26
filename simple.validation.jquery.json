@@ -1,6 +1,6 @@
 {
 	"name": "simple.validation",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"title": "jQuery Simple Validation",
 	"author": {
 		"name": "Michelle Amalia",
@@ -24,8 +24,8 @@
 		"validate"
 	],
 	"homepage": "https://github.com/capucinno-lee/jquery-simple-validation",
-	"docs": "http://capucinno-lee.site44.com/jquery-simple-validation/",
-	"demo": "http://capucinno-lee.site44.com/jquery-simple-validation/",
+	"docs": "http://capucinno-lee.site44.com/jquery-simple-validation",
+	"demo": "http://capucinno-lee.site44.com/jquery-simple-validation",
 	"download": "https://github.com/capucinno-lee/jquery-simple-validation",
 	"bugs": "https://github.com/capucinno-lee/jquery-simple-validation/issues"
 }

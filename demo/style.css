@@ -76,7 +76,7 @@ body {
 		cursor: pointer;
 		padding: 8px 20px;
 		width: auto;
-		background: url("../images/btn_submit.png") repeat-x;
+		background: #666666;
 		border: 1px solid #ccc;
 		font-family: 'Arial', sans-serif;
 		font-size: 14px;
@@ -87,7 +87,6 @@ body {
 			-moz-border-radius: 5px;
 			-khtml-border-radius: 5px;
 			-webkit-border-radius: 5px;
-			behavior: url('../image/border-radius.htc');
 	}
 		input.btn_submit:hover, a.a_submit:hover,
 		div#cc-dialog-close span:hover {
@@ -161,7 +160,8 @@ body {
 
 .span_rule {
 	color: blue;
-	font-weight: bold;
+	font: 1em 'andale mono', 'lucida console', monospace;
+	line-height: 1.5;
 }
 	.code_blue {
 		color: blue;
@@ -170,19 +170,28 @@ body {
 		color: red;
 	}
 
-.download, .download:hover {
-	display: block;
-	background: url("../images/download.png") no-repeat left center;
-	padding: 30px 0px 30px 80px;
-	font-size: 16px;
-	text-decoration: none;
-	color: #333333;
-	font-weight: bold;
-	margin-left: 30px;
+.div_download {
+	float: right;
+	width: 259px;
+	margin-top: 20px;
 }
-	.download:hover {
-		text-shadow: 0px 1px 2px #999999;
+	.download, .download:hover {
+		display: block;
+		padding: 20px 39px;
+		font-size: 18px;
+		text-decoration: none;
+		color: #333333;
+		font-weight: bold;
+		margin-left: 30px;
+		border: 2px solid #ccc;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-khtml-border-radius: 5px;
+			-webkit-border-radius: 5px;
 	}
+		.download:hover {
+			text-shadow: 0px 1px 2px #999999;
+		}
 
 h1.page_title {
 	margin: 0; padding: 0;
