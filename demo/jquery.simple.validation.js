@@ -1,4 +1,4 @@
-(function( $ ) {
+(function($, window, undefined) {
 	var methods = {
 		init : function() {},
 		isEmail : function( text ) {
@@ -57,11 +57,9 @@
 		},
 	};
 
-	$.fn.validate = function( options ) {
-		var defaults = {
-			opt: "",
-		};
-		var options = $.extend(defaults, options);
+	$.fn.validate = function( opts ) {
+		var defaults = {};
+		var options = $.extend(defaults, opts || {});
 		var form = this;
 		
 		return $(form.selector).submit(function(ev) {
@@ -80,19 +78,19 @@
 							warning += 'The ' + label + ' field is required.\n';
 						}
 
-						if( type == 'valid_email' && !methods.isEmail(value) ) {
+						else if( type == 'valid_email' && !methods.isEmail(value) ) {
 							warning += 'The ' + label + ' field must contain a valid email address.\n';
 						}
 
-						if( type == 'valid_url' && value != '' && !methods.isUrl(value) ) {
+						else if( type == 'valid_url' && value != '' && !methods.isUrl(value) ) {
 							warning += 'The ' + label + ' field must contain a valid URL.\n';
 						}
 
-						if( type == 'valid_ip' && value != '' && !methods.isIp(value) ) {
+						else if( type == 'valid_ip' && value != '' && !methods.isIp(value) ) {
 							warning += 'The ' + label + ' field must contain a valid IP.\n';
 						}
 
-						if( type.substr(0, 10) == 'min_length' && value != '' ) {
+						else if( type.substr(0, 10) == 'min_length' && value != '' ) {
 							temp = type.split('+');
 							length = temp[1];
 							if( value.length < length ) {
@@ -103,7 +101,7 @@
 							}
 						}
 
-						if( type.substr(0, 10) == 'max_length' && value != '' ) {
+						else if( type.substr(0, 10) == 'max_length' && value != '' ) {
 							temp = type.split('+');
 							length = temp[1];
 							if( value.length > length ) {
@@ -114,7 +112,7 @@
 							}
 						}
 
-						if( type.substr(0, 12) == 'exact_length' && value != '' ) {
+						else if( type.substr(0, 12) == 'exact_length' && value != '' ) {
 							temp = type.split('+');
 							length = temp[1];
 							if( value.length != length ) {
@@ -125,7 +123,7 @@
 							}
 						}
 
-						if( type.substr(0, 3) == 'min' && value != '' && methods.isInteger(value) ) {
+						else if( type.substr(0, 3) == 'min' && value != '' && methods.isInteger(value) ) {
 							temp = type.split('+');
 							limit = temp[1];
 							if( value < limit ) {
@@ -133,7 +131,7 @@
 							}
 						}
 
-						if( type.substr(0, 3) == 'max' && value != '' && methods.isInteger(value) ) {
+						else if( type.substr(0, 3) == 'max' && value != '' && methods.isInteger(value) ) {
 							temp = type.split('+');
 							limit = temp[1];
 							if( value > limit ) {
@@ -141,27 +139,27 @@
 							}
 						}
 
-						if( type == 'alpha' && !methods.isAlpha(value) ) {
+						else if( type == 'alpha' && !methods.isAlpha(value) ) {
 							warning += 'The ' + label + ' field may only contain alphabetical characters.\n';
 						}
 
-						if( type == 'alpha_numeric' && !methods.isAlphaNum(value) ) {
+						else if( type == 'alpha_numeric' && !methods.isAlphaNum(value) ) {
 							warning += 'The ' + label + ' field may only contain alpha-numeric characters.\n';
 						}
 
-						if( type == 'numeric' && value != '' && parseFloat(value).toString() != value ) {
+						else if( type == 'numeric' && value != '' && parseFloat(value).toString() != value ) {
 							warning += 'The ' + label + ' field must contain only numbers.\n';
 						}
 
-						if( type == 'is_numeric' && !methods.isNumeric(value) ) {
+						else if( type == 'is_numeric' && !methods.isNumeric(value) ) {
 							warning += 'The ' + label + ' field must contain only numeric characters.\n';
 						}
 
-						if( type == 'integer' && value != '' && !methods.isInteger(value) ) {
+						else if( type == 'integer' && value != '' && !methods.isInteger(value) ) {
 							warning += 'The ' + label + ' field must contain an integer.\n';
 						}
 
-						if( type.substr(0, 7) == 'matches' && value != '' ) {
+						else if( type.substr(0, 7) == 'matches' && value != '' ) {
 							temp = type.split('+');
 							match_id = temp[1];
 							match_label = temp[2];
@@ -171,20 +169,20 @@
 							}
 						}
 
-						if( type == 'valid_phone' && value != '' && !methods.isPhone(value) ) {
+						else if( type == 'valid_phone' && value != '' && !methods.isPhone(value) ) {
 							warning += 'The ' + label + ' field must contain a valid phone number.\n';
 						}
 
-						if( type == 'valid_date' && value != '' && !methods.isDate(value) ) {
+						else if( type == 'valid_date' && value != '' && !methods.isDate(value) ) {
 							warning += 'The ' + label + ' field must contain a valid date.\n';
 						}
 
-						if( type.substr(0, 11) == 'valid_check' ) {
+						else if( type.substr(0, 11) == 'valid_check' ) {
 							if( $(this).attr('checked') != 'checked' )
 								warning += label + '\n';
 						}
 
-						if( type.substr(0, 11) == 'valid_radio' ) {
+						else if( type.substr(0, 11) == 'valid_radio' ) {
 							match_class = $(this).attr('name');
 							flag = 0;
 							$(form.selector).find('input:radio').each(function() {
@@ -196,7 +194,7 @@
 								warning += 'Please choose one of ' + label + ' options.\n';
 						}
 
-						if( type.substr(0, 11) == 'multi_check' ) {
+						else if( type.substr(0, 11) == 'multi_check' ) {
 							temp = type.split('+');
 							match_unit = temp[1];
 							match_class = $(this).attr('name');
@@ -215,11 +213,11 @@
 			});
 
 			if( warning != '' ) {
-				window.alert(warning);
+				alert(warning);
 				return false;
 			} else {
 				return true;
 			}
 		});
 	};
-})( jQuery );
+})(jQuery, window);
