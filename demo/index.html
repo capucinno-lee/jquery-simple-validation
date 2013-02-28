@@ -123,7 +123,7 @@
 					<div>&lt;/form&gt;</div>
 					<br/>
 					<strong>Javascript :</strong>
-                    <p>$('<span class="code_blue">.form_validation</span>').validate();</p>
+                    <p>$('<span class="code_blue">.form_validation</span>').validate({short_error_message: true});</p>
 				</code>
 			</div>
 			<div class="cleaner"></div>
@@ -284,7 +284,9 @@
                 $('input, textarea').placeholder();
             });
             $(document).ready(function () {
-                $('.form_validation').validate();
+                $('.form_validation').validate({
+                    short_error_message: true
+                });
                 $('.form_others').validate();
             });
         </script>

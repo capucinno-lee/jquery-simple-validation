@@ -58,10 +58,11 @@
 	};
 
 	$.fn.validate = function( opts ) {
-		var defaults = {};
-		var options = $.extend(defaults, opts || {});
+		var options = $.extend({
+			'short_error_message' : false,
+		}, opts || {});
 		var form = this;
-		
+
 		return $(form.selector).submit(function(ev) {
 			var warning = '';
 			$(form.selector).find('input, select, textarea').each(function() {
@@ -72,24 +73,28 @@
 						var validation = data_rules.split('#');
 						for( var x=0; x<validation.length; x++ ) {
 							var rule = validation[x].split('-');
-								var label = rule[0];
+								var label = label_ori = rule[0];
 								var type = rule[1];
 								var value = $(this).val();
 
+							if( options.short_error_message == false ) {
+								label = 'The ' + label + ' field';
+							}
+
 							if( type == 'required' && value == '' ) {
-								warning += 'The ' + label + ' field is required.\n';
+								warning += label + ' is required.\n';
 							}
 
 							else if( type == 'valid_email' && !methods.isEmail(value) ) {
-								warning += 'The ' + label + ' field must contain a valid email address.\n';
+								warning += label + ' must contain a valid email address.\n';
 							}
 
 							else if( type == 'valid_url' && value != '' && !methods.isUrl(value) ) {
-								warning += 'The ' + label + ' field must contain a valid URL.\n';
+								warning += label + ' must contain a valid URL.\n';
 							}
 
 							else if( type == 'valid_ip' && value != '' && !methods.isIp(value) ) {
-								warning += 'The ' + label + ' field must contain a valid IP.\n';
+								warning += label + ' must contain a valid IP.\n';
 							}
 
 							else if( type.substr(0, 10) == 'min_length' && value != '' ) {
@@ -99,7 +104,7 @@
 									suffix = '';
 									if( length > 1 )
 										suffix = 's';
-									warning += 'The ' + label + ' field must be at least ' + length + ' character' + suffix + ' in length.\n';
+									warning += label + ' must be at least ' + length + ' character' + suffix + ' in length.\n';
 								}
 							}
 
@@ -110,7 +115,7 @@
 									suffix = '';
 									if( length > 1 )
 										suffix = 's';
-									warning += 'The ' + label + ' field can not exceed ' + length + ' character' + suffix + ' in length.\n';
+									warning += label + ' can not exceed ' + length + ' character' + suffix + ' in length.\n';
 								}
 							}
 
@@ -121,7 +126,7 @@
 									suffix = '';
 									if( length > 1 )
 										suffix = 's';
-									warning += 'The ' + label + ' field must be exactly ' + length + ' character' + suffix + ' in length.\n';
+									warning += label + ' must be exactly ' + length + ' character' + suffix + ' in length.\n';
 								}
 							}
 
@@ -129,7 +134,7 @@
 								temp = type.split('+');
 								limit = temp[1];
 								if( value < limit ) {
-									warning += 'The ' + label + ' field must be greater than ' + limit + '.\n';
+									warning += label + ' must be greater than ' + limit + '.\n';
 								}
 							}
 
@@ -137,28 +142,28 @@
 								temp = type.split('+');
 								limit = temp[1];
 								if( value > limit ) {
-									warning += 'The ' + label + ' field must be less than ' + limit + '.\n';
+									warning += label + ' must be less than ' + limit + '.\n';
 								}
 							}
 
 							else if( type == 'alpha' && !methods.isAlpha(value) ) {
-								warning += 'The ' + label + ' field may only contain alphabetical characters.\n';
+								warning += label + ' may only contain alphabetical characters.\n';
 							}
 
 							else if( type == 'alpha_numeric' && !methods.isAlphaNum(value) ) {
-								warning += 'The ' + label + ' field may only contain alpha-numeric characters.\n';
+								warning += label + ' may only contain alpha-numeric characters.\n';
 							}
 
 							else if( type == 'numeric' && value != '' && parseFloat(value).toString() != value ) {
-								warning += 'The ' + label + ' field must contain only numbers.\n';
+								warning += label + ' must contain only numbers.\n';
 							}
 
 							else if( type == 'is_numeric' && !methods.isNumeric(value) ) {
-								warning += 'The ' + label + ' field must contain only numeric characters.\n';
+								warning += label + ' must contain only numeric characters.\n';
 							}
 
 							else if( type == 'integer' && value != '' && !methods.isInteger(value) ) {
-								warning += 'The ' + label + ' field must contain an integer.\n';
+								warning += label + ' must contain an integer.\n';
 							}
 
 							else if( type.substr(0, 7) == 'matches' && value != '' ) {
@@ -166,22 +171,24 @@
 								match_id = temp[1];
 								match_label = temp[2];
 								match_value = $('#'+match_id).val();
+								if( options.short_error_message == false )
+									match_label = 'the ' + label + ' field';
 								if( value != match_value ) {
-									warning += 'The ' + label + ' field does not match the ' + match_label + ' field.\n';
+									warning += label + ' does not match with ' + match_label + '.\n';
 								}
 							}
 
 							else if( type == 'valid_phone' && value != '' && !methods.isPhone(value) ) {
-								warning += 'The ' + label + ' field must contain a valid phone number.\n';
+								warning += label + ' must contain a valid phone number.\n';
 							}
 
 							else if( type == 'valid_date' && value != '' && !methods.isDate(value) ) {
-								warning += 'The ' + label + ' field must contain a valid date.\n';
+								warning += label + ' must contain a valid date.\n';
 							}
 
 							else if( type.substr(0, 11) == 'valid_check' ) {
 								if( $(this).attr('checked') != 'checked' )
-									warning += label + '\n';
+									warning += label_ori + '\n';
 							}
 
 							else if( type.substr(0, 11) == 'valid_radio' ) {
@@ -193,7 +200,7 @@
 									}
 								});
 								if( flag == 0 )
-									warning += 'Please choose one of ' + label + ' options.\n';
+									warning += 'Please choose one of ' + label_ori + ' options.\n';
 							}
 
 							else if( type.substr(0, 11) == 'multi_check' ) {
@@ -207,7 +214,7 @@
 									}
 								});
 								if( flag < match_unit )
-									warning += 'Please choose (min) ' + match_unit + ' of ' + label + ' options.\n';
+									warning += 'Please choose (min) ' + match_unit + ' of ' + label_ori + ' options.\n';
 							}
 
 						} //end for
