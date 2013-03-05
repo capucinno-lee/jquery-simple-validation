@@ -98,8 +98,8 @@
 							}
 
 							else if( type.substr(0, 10) == 'min_length' && value != '' ) {
-								temp = type.split('+');
-								length = temp[1];
+								var temp = type.split('+');
+								var length = temp[1];
 								if( value.length < length ) {
 									suffix = '';
 									if( length > 1 )
