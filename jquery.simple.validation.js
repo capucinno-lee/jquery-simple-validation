@@ -54,12 +54,12 @@
 					return false;
 			}
 			return true; // date is valid
-		},
+		}
 	};
 
 	$.fn.validate = function( opts ) {
 		var options = $.extend({
-			'short_error_message' : false,
+			'short_error_message' : false
 		}, opts || {});
 		var form = this;
 
